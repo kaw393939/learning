@@ -16,7 +16,7 @@ var app = express();
 var env = process.env.NODE_ENV || 'development';
 var config = require('./config/config')[env];
 //Bootstrap db connection
-mongoose.connect('mongodb://localhost/learning');
+mongoose.connect('mongodb://localhost/test');
 require('./models/user');
 require('./models/course');
 require('./models/assignment');
@@ -26,7 +26,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.configure(function(){
-  app.set('port', process.env.PORT || 80);
+  app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.set('title', 'Personal Learning Platform');
